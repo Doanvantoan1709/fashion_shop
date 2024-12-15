@@ -4,7 +4,7 @@ include 'db_conn.php'; // Kết nối MySQLi
 ob_start();
 
 // Truy vấn lịch sử mua hàng từ bảng order_items
-$sql = "SELECT oi.order_id, p.NAME, oi.buy_qty, oi.price, oi.buy_qty * oi.price AS total_price
+$sql = "SELECT oi.order_id, p.name, oi.buy_qty, oi.price, oi.buy_qty * oi.price AS total_price
         FROM order_items oi 
         JOIN products p ON oi.product_id = p.id 
         ORDER BY oi.order_id DESC";
@@ -64,7 +64,7 @@ $result = mysqli_query($conn, $sql);
         }
 
         th {
-            background-color: #4CAF50; /* Màu xanh lá cây cho header */
+            background-color:rgb(68, 205, 151); /* Màu xanh lá cây cho header */
             color: white; /* Màu chữ trắng cho header */
         }
 
@@ -83,17 +83,35 @@ $result = mysqli_query($conn, $sql);
 </head>
 
 <body>
+    	<!-- Page item Area -->
+        <div id="page_item_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 text-left">
+						<h3>History</h3>
+					</div>		
+
+					<div class="col-sm-6 text-right">
+						<ul class="p_items">
+							<li><a href="#">home</a></li>
+							<li><span>History</span></li>
+						</ul>					
+					</div>	
+				</div>
+			</div>
+		</div>
 
 <div class="con_history">
 
     <table>
         <thead>
             <tr>
-                <th>Order ID</th>
+                <!-- <th>Order ID</th> -->
                 <th>Product name</th>
                 <th>Quantity</th>
                 <th>Total</th>
                 <th>Date buy</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         <tbody>
@@ -102,11 +120,11 @@ $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <tr>
-                        <td><?php echo $row['order_id']; ?></td>
-                        <td><?php echo $row['NAME']; ?></td>
+                        <!-- <td><?php echo $row['order_id']; ?></td> -->
+                        <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['buy_qty']; ?></td>
                         <td><?php echo number_format($row['total_price'], 2); ?> VND</td>
-                        <td><?php echo date('Y-m-d H:i:s'); // Hoặc lưu ngày giờ vào order_items ?></td>
+                        <td><?php echo date('Y-m-d');?></td>
                     </tr>
                     <?php
                 }
