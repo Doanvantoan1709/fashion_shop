@@ -198,8 +198,8 @@ if (mysqli_num_rows($result) > 0) {
                             <?php foreach ($products as $product): ?>
                             <div class="product">
                             <!-- Hiển ảnh hoặc ảnh lỗi sẽ cung cấp tên -->
-                            <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['NAME']; ?>"> 
-                            <h2><?php echo $product['NAME']; ?></h2>
+                            <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>"> 
+                            <h2><?php echo $product['name']; ?></h2>
                             <p>Price: <?php echo number_format($product['price']); ?> VND</p>
 
                             <!-- Form thêm sản phẩm vào giỏ hàng -->
@@ -212,7 +212,7 @@ if (mysqli_num_rows($result) > 0) {
                         </div>
                         <?php endforeach; ?>
                         <?php else: ?>
-                            <p>Không có sản phẩm nào.</p>
+                            <p>No products available.</p>
                         <?php endif; ?>
                     </div>
                 </div>

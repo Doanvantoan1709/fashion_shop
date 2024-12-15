@@ -38,6 +38,24 @@ $user = mysqli_fetch_assoc($result);
     <title>Profile</title>
 </head>
 <body>
+    		<!-- Page item Area -->
+            <div id="page_item_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 text-left">
+						<h3>Profile</h3>
+					</div>		
+
+					<div class="col-sm-6 text-right">
+						<ul class="p_items">
+							<li><a href="#">home</a></li>
+							<li><span>Profile</span></li>
+						</ul>					
+					</div>	
+				</div>
+			</div>
+		    </div>
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-4 pb-5">
